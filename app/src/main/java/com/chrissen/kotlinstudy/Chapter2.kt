@@ -1,5 +1,8 @@
 package com.chrissen.kotlinstudy
 import com.chrissen.kotlinstudy.Color.*
+import java.io.BufferedReader
+import java.util.*
+
 /**
  *  Function:定义函数的关键字：fun
  *  Kotlin中有很多乐趣（fun）哦！
@@ -15,7 +18,37 @@ fun main(args: Array<String>){
     println("Hello , $name") //字符串模板
     val person = Person("Chris", 30)
     println("${person.name}")
-    println(eval(Sum(Sum(Num(1), Num(2)),  Num(4))))
+
+    for(i in 1..100){
+        println(fizzBuzz(i))
+    }
+
+    for(i in 100 downTo 1 step 2){
+        print(fizzBuzz(i))
+    }
+
+    for(i in 1 until 100){ //不包含结束值
+
+    }
+
+    val binaryReps = TreeMap<Char, String>()
+
+    for(c in 'A'..'F'){
+        val binary = Integer.toBinaryString(c.toInt())
+        binaryReps[c] = binary
+    }
+
+    for((letter, binary) in binaryReps){
+        println("$letter = $binary")
+    }
+
+    val list = arrayListOf("10", "100", "111")
+    for((index, element) in list.withIndex()){
+        println("$index : $element")
+    }
+
+    var number = 12
+    val percetage = if( number in 0..100) number else throw IllegalArgumentException("A percentage value must be between")
 }
 
 /**
@@ -102,3 +135,23 @@ fun eval(e : Expr) : Int{
 //    is Sum -> eval(e.right) + eval(e.left)
 //    else -> throw IllegalArgumentException("Unknown expressions")
 //}
+
+fun fizzBuzz(i : Int) = when{
+    i % 15 == 0 -> "FizzBuzz"
+    i % 3 == 0 -> "Fizz"
+    i % 5 == 0 -> "Buzz"
+    else -> "$i"
+}
+
+//判断是否（不）在该区间
+fun isLetter(c : Char) = c in 'a'..'z' || c in 'A'..'Z'
+fun isNotDigic(c : Char) = c !in '0'..'9'
+
+fun readNumber(reader : BufferedReader){
+    val number = try { //try catch作为表达式
+        Integer.parseInt(reader.readLine())
+    }catch (e : NumberFormatException){
+        return
+    }
+    println(number)
+}

@@ -12,5 +12,7 @@ class MainActivity : AppCompatActivity() {
         val person = listOf(Person("Alice"), Person("Bob", age = 20))
         val oldest = person.maxBy { it.age ?: 0 }
         Log.i("TAG", "The oldest is $oldest")
+//        joinToString(person)
     }
+
 }

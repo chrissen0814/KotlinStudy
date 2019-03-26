@@ -1,5 +1,7 @@
 package com.chrissen.kotlinstudy.chapter6
 
+import java.io.BufferedReader
+
 /**
  *  Function:
  *  <br/>
@@ -22,6 +24,11 @@ fun main(args : Array<String>){
     email.isNullOrBlank()
     email?.isBlank()
     email?.let { sendToEmail(it) }
+
+    arrayOf("a", "b")
+    val letters = Array<String>(26){i -> ('a' + i).toString()}
+
+
 }
 
 fun sendToEmail(email: String){
@@ -43,4 +50,23 @@ fun printShippingLabel(person: Person){
         println(streetAddress)
         println("$zipCode $city, $country")
     }
+}
+
+//支持类型参数的可空性
+fun readNumbers(reader: BufferedReader): List<Int?>{
+    val result = ArrayList<Int?>()
+    for(line in reader.lineSequence()){
+        try {
+            val number = line.toInt()
+            result.add(number)
+        } catch (e: NumberFormatException) {
+            result.add(null)
+        }
+    }
+    return result
+}
+
+fun addValidNumbers(numbers: List<Int?>){
+    val validNumbers = numbers.filterNotNull()
+    println("Sum of valid numbers: ${validNumbers.sum()}")
 }

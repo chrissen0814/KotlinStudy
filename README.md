@@ -18,3 +18,6 @@
 
 ## 第五章：Lambda编程
 [第五章：Lambda编程](https://blog.csdn.net/ChrisSen/article/details/88423195)
+
+## 第六章：类型系统
+[第六章：类型系统](https://blog.csdn.net/ChrisSen/article/details/88682157)

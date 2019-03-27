@@ -10,7 +10,7 @@ package com.chrissen.kotlinstudy.chapter7
  *  Email: chrissen0814@gmail.com
  */
 
-data class Person(val firstName: String, val lastName : String) : Comparable<Person> {
+data class Person(val firstName: String, val lastName : String) : Comparable<Person>{
 
     override fun compareTo(other: Person): Int {
         return compareValuesBy(this, other, Person::lastName, Person::firstName)

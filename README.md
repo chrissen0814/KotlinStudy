@@ -22,6 +22,6 @@
 ## 第六章：类型系统
 [第六章：类型系统](https://blog.csdn.net/ChrisSen/article/details/88682157)
 
-##第七章：运算符重载及其他约定
+## 第七章：运算符重载及其他约定
 [第七章：运算符重载及其他约定](https://blog.csdn.net/ChrisSen/article/details/88849161)
 

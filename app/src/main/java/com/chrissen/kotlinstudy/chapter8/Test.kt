@@ -21,4 +21,19 @@ fun main(args : Array<String>){
     //函数变量本身可以为空
     val funOrNull : ((Int, Int) -> Int)? = null
 
+    val calculator = getShippingCostCalculator(Delivery.EXPEDITED)
+    println("Shipping costs ${calculator(Order(3))}")
+
+    val log = listOf(SiteVisit("/", 34.0, OS.WINDOWS),
+            SiteVisit("/", 22.0, OS.MAC),
+            SiteVisit("/", 12.0, OS.WINDOWS),
+            SiteVisit("/", 8.0, OS.IOS),
+            SiteVisit("/", 16.3, OS.ANDROID))
+
+    val averageWindowsDuration = log.filter { it.os in setOf(OS.ANDROID, OS.IOS) }
+            .map { it.duration }.average()
+    println(averageWindowsDuration)
+
+    println(log.getAverageDuration { it.os in setOf(OS.IOS, OS.ANDROID) })
+
 }

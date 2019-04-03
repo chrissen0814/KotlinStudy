@@ -18,3 +18,19 @@ fun String.filter(predicate : (Char) -> Boolean) : String{
     }
     return sb.toString()
 }
+
+fun getShippingCostCalculator(delivery: Delivery) : (Order) -> Double{
+    if(delivery == Delivery.EXPEDITED){
+        return {order -> 6+ 2.1*order.itemCount }
+    }
+    return {order -> 1.2*order.itemCount }
+}
+
+
+//使用扩展函数，但还不够开放
+fun List<SiteVisit>.averageDurationFor(os : OS) = filter { it.os == os }
+        .map { it.duration }
+        .average()
+//使用高阶函数来增强它的扩展性（把条件下放给调用者）
+fun List<SiteVisit>.getAverageDuration(predicate : (SiteVisit) -> Boolean) =
+        filter(predicate).map(SiteVisit::duration).average()

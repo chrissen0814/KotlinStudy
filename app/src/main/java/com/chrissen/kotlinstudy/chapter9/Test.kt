@@ -15,4 +15,6 @@ fun main(args: Array<String>){
     val readers : MutableList<String> = mutableListOf()
 
     readers.filter { it !in authors }
+    val serviceImpl = String::javaClass
+
 }

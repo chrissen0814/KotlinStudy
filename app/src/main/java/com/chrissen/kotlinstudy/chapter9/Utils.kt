@@ -25,3 +25,9 @@ where T : CharSequence, T : Appendable{
         seq.append(".")
     }
 }
+
+//泛型类型参数检查的时候不能使用is,但可以使用as, as?
+fun printSum(c : Collection<*>){
+    val intList = c as? List<Int> ?: throw IllegalArgumentException("Error")
+    println(intList.sum())
+}

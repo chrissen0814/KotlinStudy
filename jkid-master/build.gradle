@@ -1,0 +1,26 @@
+buildscript {
+    ext.kotlin_version = "1.2.61"
+
+    repositories {
+        mavenCentral()
+        maven { url "http://dl.bintray.com/kotlin/kotlin-eap" }
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: "kotlin"
+
+repositories {
+    mavenCentral()
+    maven { url "http://dl.bintray.com/kotlin/kotlin-eap" }
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+    testCompile "junit:junit:4.12"
+}
